@@ -14,8 +14,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class MapPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+
+  //Api Key// AIzaSyDKSBudEjizMvZ46ixNC-WhXNL385cHKpk 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage');

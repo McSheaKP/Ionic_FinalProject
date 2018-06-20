@@ -4,33 +4,45 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { MapPage } from '../pages/map/map';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpClientModule } from '@angular/common/http';
+
 import { MapProvider } from '../providers/map/map';
+import { UserProvider } from '../providers/user/user';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    LoginPage,
+    RegisterPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    LoginPage,
+    MapPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MapProvider
+    MapProvider,
+    UserProvider
   ]
 })
 export class AppModule {}
