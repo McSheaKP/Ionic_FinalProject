@@ -28,7 +28,7 @@ export class RegisterPage {
   userData: any;
   
   doRegister(){
-    this._aus.register(this.user)  
+    /*this._aus.register(this.user)  
        .subscribe( (res: any) => {
              console.log(res)
              sessionStorage.setItem('token', res.token);
@@ -37,11 +37,11 @@ export class RegisterPage {
              let userId = sessionStorage.getItem('userId');
              this.gotoLogin();
              
-    })
+    })*/
             
   }
   gotoLogin() {
-    this.router.navigate(['login']);
+    //this.router.navigate(['login']);
   }
   deleteRegister(){
     this.user.firstName = "";

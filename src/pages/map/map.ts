@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+declare var google;
 /**
  * Generated class for the MapPage page.
  *
@@ -18,8 +19,26 @@ export class MapPage {
 
   //Api Key// AIzaSyDKSBudEjizMvZ46ixNC-WhXNL385cHKpk 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MapPage');
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+ 
+  ionViewDidLoad(){
+    this.loadMap();
+    console.log(this.map, "google map object")
+    console.log(this.mapElement, "Map Element")
+  }
+ 
+  loadMap(){
+ 
+    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+ 
+    let mapOptions = {
+      center: latLng,
+      zoom: 15
+      //mapTypeId: google.maps//.MapTypeId.ROADMAP
+    }
+ 
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
 }
