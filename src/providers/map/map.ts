@@ -10,8 +10,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MapProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello MapProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
+
+  
+
 
 }
