@@ -41,6 +41,7 @@ export class MapPage {
   
   //this takes in the place parameter and passes 
   createMarker(place) {
+    console.log(place, " place inside createmarker");
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: this.map,
@@ -64,7 +65,7 @@ export class MapPage {
   }
 
   loadMap(){
- 
+    let that = this;
     this.geolocation.getCurrentPosition().then((position) => {
  
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -95,6 +96,9 @@ export class MapPage {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           var place = [i];
+          that.createMarker(results[i]);
+          console.log(that, "logging the this")
+          
         }
       }
     }  

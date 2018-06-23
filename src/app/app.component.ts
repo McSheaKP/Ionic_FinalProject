@@ -27,8 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Login', component: LoginPage },
       { title: 'Register', component: RegisterPage },
-      {
-         title: 'Map', component: MapPage }
+      { title: 'Map', component: MapPage }
     ];
 
   }
