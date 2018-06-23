@@ -39,6 +39,16 @@ export class MapPage {
    
   }
   
+  //this takes in the place parameter and passes 
+  createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: this.map,
+      position: place.geometry.location
+    });
+  }  
+
+  //connected to the location marker button to add marker in the center of the screen
   addMarker(){
  
     let marker = new google.maps.Marker({
@@ -81,9 +91,10 @@ export class MapPage {
     
     function callback(results, status) {
       console.log(results, "receiving results in callback")
+      console.log(results[0].geometry.location, "geometry location")
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-          var place = results[i];
+          var place = [i];
         }
       }
     }  
