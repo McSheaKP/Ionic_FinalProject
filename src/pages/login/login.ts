@@ -23,7 +23,7 @@ export class LoginPage {
   }
   
   doLogin(){
-    /*this._aup.login(this.user)  
+    this._aup.login(this.user)  
        .subscribe( (res: any) => {
              console.log(res)
              sessionStorage.setItem('token', res.token);
@@ -36,7 +36,7 @@ export class LoginPage {
              this.gotoLoggedIn();
              this._aus.loggedIn = true;
              
-    })*/
+    })
   }
   
   gotoLoggedIn() {

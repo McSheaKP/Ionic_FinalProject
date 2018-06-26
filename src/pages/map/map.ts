@@ -89,7 +89,8 @@ export class MapPage {
         this.service = new google.maps.places.PlacesService(this.map);
         this.service.nearbySearch(request, callback);
       
-    
+    //try to migrate some of this to the provider
+    //we really want the results to be captured in the provider so that we can display it in the list page
     function callback(results, status) {
       console.log(results, "receiving results in callback")
       console.log(results[0].geometry.location, "geometry location")

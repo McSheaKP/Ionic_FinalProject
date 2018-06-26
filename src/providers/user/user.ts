@@ -10,8 +10,58 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello UserProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
 
+  url:string = "http://kevin-q2-2018-phortonssf.c9users.io:8080/api";
+  appUsersUrl: string = "/appUsers/";
+  loggedIn: boolean = false; 
+  user: any = {
+      firstName: "TesterUserName",
+      lastName: "TestLast",
+      email: "test1234@gmail.com",
+      password: "1234"
+  }
+  
+   register(user){
+    return this.http.post(this.url+"/appUsers", user);
+   }
+   
+   login(user){
+    return this.http.post(this.url+"/appUsers/login", user);
+   }
+   
+   logged(){
+    let userId = sessionStorage.getItem("userId");
+    return this.http.get(this.url+this.appUsersUrl + userId);
+   }
+
+   
+
+   favStock(stock){
+    let userId = sessionStorage.getItem("userId");
+    return this.http.post(this.url + this.appUsersUrl + userId + "/stocks", stock);
+   }
+   
+   
+   getUserStocks(){
+    let userId = sessionStorage.getItem("userId");
+    return this.http.get(this.url + this.appUsersUrl + userId + "/stocks/")
+   }
+   
+   deleteUserStock(stockId){
+     let userId = sessionStorage.getItem("userId");
+     return this.http.delete(this.url + this.appUsersUrl + userId + "/stocks/" + stockId)
+   }
+   
+   loginToggle(){
+    this.loggedIn = true;
+   }
+   
+   logOutToggle(){
+    this.loggedIn = false;
+   }
+   
 }
+
+
+

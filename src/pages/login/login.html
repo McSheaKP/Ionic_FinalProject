@@ -13,9 +13,39 @@
     </ion-navbar>
 </ion-header>
 
-
-
-
 <ion-content padding>
+
+    <div class="login-wrapper">
+        <form class="login">
+            <label class="title">
+                <h3 class="welcome">Please Login</h3>
+            </label>
+
+            <ion-list>
+                <ion-item>
+                  <ion-label floating>Email Address</ion-label>
+                    <ion-input 
+                        class="username" 
+                        type="email" 
+                        id="login_username" 
+                        [(ngModel)]="user.email"
+                        [ngModelOptions]="{standalone: true}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input 
+                        class="password" 
+                        type="password" 
+                        id="login_password" 
+                        [(ngModel)]="user.password"
+                        [ngModelOptions]="{standalone: true}">
+                    </ion-input>        
+                </ion-item>
+            </ion-list>
+       
+        </form>
+    </div>
+
 
 </ion-content>

@@ -28,17 +28,15 @@ export class RegisterPage {
   userData: any;
   
   doRegister(){
-    /*this._aus.register(this.user)  
+    this._aup.register(this.user)  
        .subscribe( (res: any) => {
              console.log(res)
              sessionStorage.setItem('token', res.token);
              sessionStorage.setItem('userId', res.userId);
              let token = sessionStorage.getItem('token');
              let userId = sessionStorage.getItem('userId');
-             this.gotoLogin();
-             
-    })*/
-            
+             this.gotoLogin();        
+    })            
   }
   gotoLogin() {
     //this.router.navigate(['login']);
