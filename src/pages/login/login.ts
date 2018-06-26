@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
+import { MapPage } from '../map/map';
 /**
  * Generated class for the LoginPage page.
  *
@@ -32,26 +33,18 @@ export class LoginPage {
              let userId = sessionStorage.getItem('userId');
              console.log("user token", token);
              console.log("user id", userId);
-             this._aus.loginToggle;
-             this.gotoLoggedIn();
-             this._aus.loggedIn = true;
-             
+             this.mapRoute();
     })
   }
   
-  gotoLoggedIn() {
-    //this.router.navigate(['logged']);
+  mapRoute() {
+    this.navCtrl.setRoot(MapPage);
   }
   
   deleteLogin(){
     this.user.email = "";
     this.user.password = "";
   }
-
-  ngOnInit() {
-    
-  }
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

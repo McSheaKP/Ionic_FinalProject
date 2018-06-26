@@ -12,7 +12,7 @@ export class UserProvider {
 
   constructor(public http: HttpClient) {}
 
-  url:string = "http://kevin-q2-2018-phortonssf.c9users.io:8080/api";
+  url:string = "http://localhost:3000/api";
   appUsersUrl: string = "/appUsers/";
   loggedIn: boolean = false; 
   user: any = {
@@ -23,7 +23,7 @@ export class UserProvider {
   }
   
    register(user){
-    return this.http.post(this.url+"/appUsers", user);
+    return this.http.post(this.url+"/appUsers/", user);
    }
    
    login(user){
@@ -51,14 +51,6 @@ export class UserProvider {
    deleteUserStock(stockId){
      let userId = sessionStorage.getItem("userId");
      return this.http.delete(this.url + this.appUsersUrl + userId + "/stocks/" + stockId)
-   }
-   
-   loginToggle(){
-    this.loggedIn = true;
-   }
-   
-   logOutToggle(){
-    this.loggedIn = false;
    }
    
 }

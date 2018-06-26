@@ -26,6 +26,27 @@
 
             <ion-list>
                 <ion-item>
+                    <ion-label floating>First Name</ion-label>
+                    <ion-input  
+                        class="username" 
+                        type="text" 
+                        id="login_firstName" 
+                        [(ngModel)]="user.firstName"
+                        [ngModelOptions]="{standalone: true}">
+                    </ion-input>           
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Last Name</ion-label>
+                    <ion-input 
+                        class="username" 
+                        type="text" 
+                        id="login_lastName" 
+                        [(ngModel)]="user.lastName"
+                        [ngModelOptions]="{standalone: true}">
+                    </ion-input>           
+                </ion-item>
+
+                <ion-item>
                   <ion-label floating>Email Address</ion-label>
                     <ion-input 
                         class="username" 
@@ -45,30 +66,11 @@
                         [ngModelOptions]="{standalone: true}">
                     </ion-input>        
                 </ion-item>
-                <ion-item>
-                    <ion-label floating>First Name</ion-label>
-                    <ion-input  
-                            class="username" 
-                            type="text" 
-                            id="login_firstName" 
-                            [(ngModel)]="user.firstName"
-                            [ngModelOptions]="{standalone: true}">
-                    </ion-input>           
-                </ion-item>
-                <ion-item>
-                        <ion-label floating>Last Name</ion-label>
-                        <ion-input 
-                            class="username" 
-                            type="text" 
-                            id="login_lastName" 
-                            [(ngModel)]="user.lastName"
-                            [ngModelOptions]="{standalone: true}">
-                        </ion-input>           
-                </ion-item>
+              
             </ion-list>
        
         </form>
     </div>
 
-
+    <button ion-button type="submit" class="btn btn-primary" (click)="doRegister()">Register</button>
 </ion-content>

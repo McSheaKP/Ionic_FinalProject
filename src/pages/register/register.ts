@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
+import { MapPage } from '../map/map';
 
 /**
  * Generated class for the RegisterPage page.
@@ -28,18 +29,19 @@ export class RegisterPage {
   userData: any;
   
   doRegister(){
+    console.log(this.user, "user data");
     this._aup.register(this.user)  
        .subscribe( (res: any) => {
-             console.log(res)
+             console.log(res, "returned value from .subcribe");
              sessionStorage.setItem('token', res.token);
              sessionStorage.setItem('userId', res.userId);
              let token = sessionStorage.getItem('token');
              let userId = sessionStorage.getItem('userId');
-             this.gotoLogin();        
+             this.mapRoute();        
     })            
   }
-  gotoLogin() {
-    //this.router.navigate(['login']);
+  mapRoute() {
+    this.navCtrl.setRoot(MapPage);
   }
   deleteRegister(){
     this.user.firstName = "";

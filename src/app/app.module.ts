@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { MapPage } from '../pages/map/map';
+import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,13 +18,15 @@ import { MapProvider } from '../providers/map/map';
 import { UserProvider } from '../providers/user/user';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
     RegisterPage,
-    MapPage
+    MapPage,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -34,9 +37,10 @@ import { UserProvider } from '../providers/user/user';
   entryComponents: [
     MyApp,
     HomePage,
+    RegisterPage,
     LoginPage,
     MapPage,
-    RegisterPage
+    ListPage
   ],
   providers: [
     StatusBar,

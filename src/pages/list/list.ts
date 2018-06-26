@@ -17,9 +17,11 @@ export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public _mps: MapProvider) {}
 
+  listData: any;
 
 
   ionViewDidLoad() {
+    this.listData = this._mps.mapData;
     console.log('ionViewDidLoad ListPage');
   }
 

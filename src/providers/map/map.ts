@@ -12,7 +12,7 @@ export class MapProvider {
 
   constructor(public http: HttpClient) {}
 
-  
+  mapData: any;
 
 
 }

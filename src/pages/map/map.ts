@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { MapProvider } from '../../providers/map/map';
 
 declare var google;
 /**
@@ -20,8 +21,9 @@ export class MapPage {
   map: any;
   service: any;
   infowindow: any;
+  mapsData: any;
  
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) {}
+  constructor(public navCtrl: NavController, public geolocation: Geolocation, public _mps: MapProvider) {}
  
   ionViewDidLoad(){
     this.loadMap();
@@ -51,7 +53,7 @@ export class MapPage {
 
   //connected to the location marker button to add marker in the center of the screen
   addMarker(){
- 
+
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
@@ -81,8 +83,8 @@ export class MapPage {
 
       var request = {
         location: latLng,
-        radius: '500',
-        type: ['restaurant']
+        radius: '1000',
+        type: ['coffee']
         //query: 'Museum of Contemporary Art Australia',
         //fields: ['photos', 'formatted_address', 'name', 'rating', 'opening_hours', 'geometry'],
       }  
@@ -101,7 +103,9 @@ export class MapPage {
           console.log(that, "logging the this")
           
         }
+      that._mps.mapData = results;
       }
+
     }  
     }, (err) => {
       console.log(err);
